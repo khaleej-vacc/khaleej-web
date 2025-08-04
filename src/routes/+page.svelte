@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 
 	import Events from '$lib/components/Events.svelte';
 
 	import bgImage from '$lib/assets/images/bg.png';
 
-	let { data }: { data: PageData } = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <main class="flex flex-col">
@@ -33,7 +33,7 @@
 			{#if data.events}
 				<Events events={data.events} />
 			{:else}
-				<p>There are currently no upcoming events.</p>
+				<p class="text-center">There are currently no upcoming events.</p>
 			{/if}
 		</div>
 	</section>

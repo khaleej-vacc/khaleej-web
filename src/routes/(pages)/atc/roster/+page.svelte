@@ -1,11 +1,11 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import type { PageProps } from './$types';
 
 	import { UserRoundSearch, Check, X } from 'lucide-svelte';
 
 	import bgImage from '$lib/assets/images/bg.png';
 
-	let { data }: { data: PageData } = $props();
+	let { data }: PageProps = $props();
 </script>
 
 <main class="flex flex-col">

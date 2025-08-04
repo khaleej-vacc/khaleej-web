@@ -12,6 +12,14 @@ export interface Controller {
 	};
 }
 
+export interface StaffMember {
+	name: string;
+	short_title: string;
+	long_title: string;
+	email: string;
+	active: boolean;
+}
+
 export interface VatsimEvent {
 	id: number;
 	type: string;

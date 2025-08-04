@@ -17,6 +17,7 @@ export const load: LayoutServerLoad = async ({ fetch, url }) => {
 
 		events = data.filter((event) => event.airports.some((airport) => airport.icao == 'OBBI' || airport.icao == 'OKKK'));
 	} catch (err) {
+		console.error(`[${url.pathname}] Error Fetching Events:`);
 		console.error(err);
 	}
 

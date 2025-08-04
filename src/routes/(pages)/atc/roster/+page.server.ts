@@ -16,12 +16,13 @@ export const load: PageServerLoad = async ({ fetch, url }) => {
 		]);
 
 		if (!resResponse.ok) throw new Error(`[${url.pathname}] Error Fetching Residents: ${resResponse.status}: ${resResponse.statusText}`);
-		if (!resResponse.ok) throw new Error(`[${url.pathname}] Error Fetching Visitors: ${visResponse.status}: ${visResponse.statusText}`);
+		if (!visResponse.ok) throw new Error(`[${url.pathname}] Error Fetching Visitors: ${visResponse.status}: ${visResponse.statusText}`);
 
 		residents = await resResponse.json();
 		visitors = await visResponse.json();
 	} catch (err) {
-		// We only log the error as the data is sent as null to the client
+        // We only log the error as the data is sent as null to the client
+        console.error(`[${url.pathname}] Error Fetching ATC Roster:`);
 		console.error(err);
 	}
 
