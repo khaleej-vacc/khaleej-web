@@ -7,7 +7,7 @@ export const load: PageServerLoad = async ({ fetch, url }) => {
 	const cdn = new URL('https://' + CDN_HOSTNAME);
 
 	let staff: Array<{ [key: string]: StaffMember[] }> | null = null;
-    
+
 	try {
 		const response = await fetch(new URL('/staff/roster.json', cdn));
 

@@ -5,14 +5,14 @@
 	import Instagram from './icons/Instagram.svelte';
 </script>
 
-<footer class="bg-base-300 w-full">
+<footer class="w-full bg-base-300">
 	<div class="container">
 		<div class="divider m-0"></div>
 
 		<div class="footer footer-center gap-8 py-10">
 			<aside>
-				<a href="/" aria-label="Home" class="hover:opacity-50 transition-opacity">
-					<enhanced:img src="../assets/images/logo_footer.png" alt="Footer Logo" class="w-auto h-24" />
+				<a href="/" aria-label="Home" class="transition-opacity hover:opacity-50">
+					<enhanced:img src="../assets/images/logo_footer.png" alt="Footer Logo" class="h-24 w-auto" />
 				</a>
 
 				<p class="text-neutral-content">© 2024 KHALEEJ VACC • ALL RIGHTS RESERVED</p>
@@ -24,16 +24,16 @@
 					<Discord class="fill-current w-6 h-6" />
 				</a> -->
 
-				<a href="https://www.youtube.com/@KhaleejvACC/" aria-label="YouTube" class="hover:opacity-50 transition-opacity">
-					<YouTube class="fill-current w-6 h-6" />
+				<a href="https://www.youtube.com/@KhaleejvACC/" aria-label="YouTube" class="transition-opacity hover:opacity-50">
+					<YouTube class="h-6 w-6 fill-current" />
 				</a>
 
-				<a href="https://www.twitch.tv/khaleejvacc/" aria-label="Twitch" class="hover:opacity-50 transition-opacity">
-					<Twitch class="fill-current w-6 h-6" />
+				<a href="https://www.twitch.tv/khaleejvacc/" aria-label="Twitch" class="transition-opacity hover:opacity-50">
+					<Twitch class="h-6 w-6 fill-current" />
 				</a>
 
-				<a href="https://www.instagram.com/khaleejvacc/" aria-label="Instagram" class="hover:opacity-50 transition-opacity">
-					<Instagram class="fill-current w-6 h-6" />
+				<a href="https://www.instagram.com/khaleejvacc/" aria-label="Instagram" class="transition-opacity hover:opacity-50">
+					<Instagram class="h-6 w-6 fill-current" />
 				</a>
 			</nav>
 		</div>

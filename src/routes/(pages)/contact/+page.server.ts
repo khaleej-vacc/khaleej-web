@@ -69,7 +69,7 @@ export const actions: Actions = {
 
 			return message(form, { status: 'success', text: 'Your message has been sent successfully.' });
 		} catch (err) {
-            console.error(`[${event.url.pathname}] Error Sending Contact Form:`);
+			console.error(`[${event.url.pathname}] Error Sending Contact Form:`);
 			console.error(err);
 			// More advanced error handling can be added here in the future
 			return message(form, { status: 'error', text: 'Uh oh! An error occured, try again later.' });

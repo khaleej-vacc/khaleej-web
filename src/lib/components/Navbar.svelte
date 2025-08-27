@@ -47,8 +47,8 @@
 	<div class="drawer-content flex flex-col">
 		<div class="navbar bg-transparent px-8">
 			<div class="navbar-start">
-				<a href="/" aria-label="Home" class="hover:opacity-50 transition-opacity">
-					<enhanced:img src="../assets/images/logo_khaleej.png" alt="Logo" class="w-32 h-32" />
+				<a href="/" aria-label="Home" class="transition-opacity hover:opacity-50">
+					<enhanced:img src="../assets/images/logo_khaleej.png" alt="Logo" class="h-32 w-32" />
 				</a>
 			</div>
 
@@ -74,7 +74,7 @@
 								<Plane size={20} /> Pilots
 							</summary>
 
-							<ul class="menu menu-vertical bg-secondary bg-opacity-50 min-w-max">
+							<ul class="menu menu-vertical min-w-max bg-secondary bg-opacity-50">
 								<li><a href="/events"><CalendarHeart size={20} />Events</a></li>
 								<li><a href="/events/booking"><CalendarPlus size={20} />Event Booking</a></li>
 								<li><a href="/charts"><Map size={20} />Airports & Charts</a></li>
@@ -88,7 +88,7 @@
 								<Radar size={20} /> Controllers
 							</summary>
 
-							<ul class="menu menu-vertical bg-secondary bg-opacity-50 min-w-max">
+							<ul class="menu menu-vertical min-w-max bg-secondary bg-opacity-50">
 								<li><a href="/atc/feedback"><Rss size={20} />ATC Feedback</a></li>
 								<li><a href="/atc/roster"><UserRoundSearch size={20} />ATC Roster</a></li>
 								<li><a href="https://docs.khaleejvacc.net/" target="_blank"><BookText size={20} />Documentation</a></li>
@@ -102,7 +102,7 @@
 								<Info size={20} /> About
 							</summary>
 
-							<ul class="menu menu-vertical bg-secondary bg-opacity-50 min-w-max">
+							<ul class="menu menu-vertical min-w-max bg-secondary bg-opacity-50">
 								<li><a href="/staff"><UsersRound size={20} />Staff</a></li>
 								<li><a href="/policies"><HeartHandshake size={20} />Policies</a></li>
 								<li><a href="/contact"><Mails size={20} />Contact</a></li>
@@ -130,7 +130,7 @@
 	<div class="drawer-side">
 		<label for="mobile-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 
-		<ul class="menu bg-base-200 w-80 min-h-full p-4">
+		<ul class="menu min-h-full w-80 bg-base-200 p-4">
 			<li class="menu-title">Getting Started</li>
 			<li><a href="/new"><Star size={20} />New to VATSIM</a></li>
 			<li><a href="/join"><UserPlus size={20} />Join Khaleej</a></li>

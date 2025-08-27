@@ -17,7 +17,7 @@
 			</button>
 
 			<span>
-				Looking to give ATC feedback? Click <a href="/atc/feedback" class="btn-link text-secondary hover:opacity-50 transition-opacity"
+				Looking to give ATC feedback? Click <a href="/atc/feedback" class="btn-link text-secondary transition-opacity hover:opacity-50"
 					>here</a
 				>.
 			</span>

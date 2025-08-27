@@ -6,6 +6,6 @@
 
 <svelte:window bind:scrollY />
 
-<header class="fixed w-full z-10 transition-all" class:backdrop-blur-lg={scrollY}>
+<header class="fixed z-10 w-full transition-all" class:backdrop-blur-lg={scrollY}>
 	<Navbar />
 </header>

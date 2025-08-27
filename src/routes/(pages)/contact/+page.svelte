@@ -4,7 +4,7 @@
 
 	import { Mails, CircleCheck, CircleX } from 'lucide-svelte';
 
-	import bgImage from '$lib/assets/images/bg.png';
+	import bgImage from '$lib/assets/images/bg.png?enhanced';
 
 	let { data } = $props();
 
@@ -12,22 +12,26 @@
 </script>
 
 <main class="flex flex-col">
-	<section class="bg-cover bg-center bg-no-repeat h-[40vh]" style="background-image: url({bgImage});">
-		<div class="bg-black/50 h-full">
-			<div class="container flex flex-col justify-center items-center h-full">
-				<div class="flex items-center gap-2 text-secondary font-bold text-2xl md:text-4xl">
+	<section class="relative isolate min-h-[40dvh] bg-cover bg-center bg-no-repeat" style="background-image: url({bgImage});">
+		<enhanced:img src={bgImage} alt="Background Image" class="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
+
+		<!-- Background Overlay -->
+		<div class="absolute inset-0 -z-10 bg-black/50"></div>
+
+		<div class="container mx-auto">
+			<div class="flex min-h-[40dvh] flex-col items-center justify-center">
+				<div class="flex items-center gap-2 text-2xl font-bold text-secondary md:text-4xl">
 					<Mails size={36} /> Contact
 				</div>
 			</div>
 		</div>
 
-		<div class="relative">
-			<div class="absolute bottom-0 w-full h-20 bg-gradient-to-t from-base-300"></div>
-		</div>
+		<!-- Bottom Gradient -->
+		<div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-base-300"></div>
 	</section>
 
 	<section class="bg-base-300 py-10">
-		<div class="container flex flex-col items-center min-h-[40vh]">
+		<div class="container flex min-h-[40vh] flex-col items-center">
 			<form method="POST" class="card card-body w-full" use:enhance>
 				<div class="form-control">
 					<label for="name" class="label">
