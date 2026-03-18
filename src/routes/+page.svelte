@@ -7,13 +7,14 @@
 	import airlinkLogo from '$lib/assets/images/partners/airlink.png?enhanced';
 	import vatsimLogo from '$lib/assets/images/partners/vatsim.png?enhanced';
 	import hawkskullzLogo from '$lib/assets/images/partners/hawkskullz.png?enhanced';
+	import gulfSkiesLogo from '$lib/assets/images/partners/gulfskies.png?enhanced';
 
 	let { data }: PageProps = $props();
 </script>
 
 <main class="flex flex-col">
 	<section class="relative isolate min-h-dvh overflow-hidden bg-cover bg-center bg-no-repeat">
-		<!-- Backround Image -->
+		<!-- Background Image -->
 		<enhanced:img src={bgImage} alt="Background Image" class="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
 
 		<!-- Background Overlay -->
@@ -48,30 +49,25 @@
 		</div>
 	</section>
 
-	<!-- <section class="bg-base-300 py-10">
-		<div class="container flex flex-col">
-			<h2 class="text-4xl">Upcoming Events</h2>
-			<div class="divider"></div>
-		</div>
-	</section> -->
-
 	<section class="bg-base-300 pb-10">
 		<div class="container mx-auto">
 			<div class="flex flex-col gap-10">
 				<div class="divider divider-secondary text-4xl before:bg-opacity-50 after:bg-opacity-50">Our Partners</div>
 
-				<!-- Manual padding for now due to image aspect ratio mismatch -->
-				<div class="flex w-full flex-col items-center justify-center md:flex-row">
-					<a href="https://airlinkvirtual.com/" target="_blank" aria-label="Airlink Virtual" class="transition-opacity hover:opacity-50">
-						<enhanced:img src={airlinkLogo} alt="Partner Logo" class="h-28 w-auto md:mr-4" />
+				<div class="flex flex-wrap items-center justify-center gap-10">
+					<a href="https://airlinkvirtual.com/" target="_blank" rel="noopener noreferrer" aria-label="Airlink Virtual" class="transition-opacity hover:opacity-50">
+						<enhanced:img src={airlinkLogo} alt="Airlink Virtual" class="h-28 w-auto" />
 					</a>
 
-					<a href="https://vatsim.net/" target="_blank" aria-label="VATSIM" class="transition-opacity hover:opacity-50">
-						<enhanced:img src={vatsimLogo} alt="Partner Logo" class="mt-6 h-28 w-auto md:ml-4 md:mt-0" />
+					<a href="https://vatsim.net/" target="_blank" rel="noopener noreferrer" aria-label="VATSIM" class="transition-opacity hover:opacity-50">
+						<enhanced:img src={vatsimLogo} alt="VATSIM" class="h-28 w-auto" />
 					</a>
 
-					<!-- No external link provided -->
-					<enhanced:img src={hawkskullzLogo} alt="Partner Logo" class="h-40 w-auto" />
+					<enhanced:img src={hawkskullzLogo} alt="Hawkskullz" class="h-40 w-auto" />
+
+					<a href="https://www.gulfskiesvirtual.org/" target="_blank" rel="noopener noreferrer" aria-label="Gulf Skies Virtual Airlines" class="transition-opacity hover:opacity-50">
+						<enhanced:img src={gulfSkiesLogo} alt="Gulf Skies Virtual Airlines" class="h-24 w-auto" />
+					</a>
 				</div>
 			</div>
 		</div>
