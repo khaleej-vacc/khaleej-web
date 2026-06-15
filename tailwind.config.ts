@@ -11,6 +11,7 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				ubuntu: ['Ubuntu', 'sans-serif'], // Added the Ubuntu font here
 				quicksand: ['Quicksand', 'sans-serif']
 			},
 			colors: {

@@ -61,7 +61,7 @@
 						<button class="btn btn-disabled">Get Started</button>
 					</div>
 
-					<enhanced:img src="../../../lib/assets/images/bg.png" alt="Region Image" class="h-auto w-96 rounded-lg shadow-2xl" />
+					<enhanced:img src="../../../lib/assets/images/vatmena.png" alt="Region Image" class="h-auto w-96 rounded-lg shadow-2xl" />
 				</div>
 			</div>
 		</div>

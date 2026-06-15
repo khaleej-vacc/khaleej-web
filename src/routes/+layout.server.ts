@@ -15,7 +15,7 @@ export const load: LayoutServerLoad = async ({ fetch, url }) => {
 
 		const { data }: { data: VatsimEvent[] } = await response.json();
 
-		events = data.filter((event) => event.airports.some((airport) => airport.icao == 'OBBI' || airport.icao == 'OKKK'));
+		events = data.filter((event) => event.airports.some((airport) => airport.icao == 'OBBI' || airport.icao == 'OTHH'));
 	} catch (err) {
 		console.error(`[${url.pathname}] Error Fetching Events:`);
 		console.error(err);

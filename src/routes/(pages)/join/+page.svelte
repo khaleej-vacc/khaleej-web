@@ -30,16 +30,17 @@
 		<div class="container flex min-h-[40vh] flex-col items-center">
 			<div class="hero">
 				<div class="hero-content flex-col gap-8 lg:flex-row">
-					<enhanced:img src="../../../lib/assets/images/bg.png" alt="Join Image" class="w-[28rem] rounded-lg shadow-2xl" />
+					<enhanced:img src="../../../lib/assets/images/join.png" alt="Join Image" class="w-[28rem] rounded-lg shadow-2xl" />
 
 					<div class="flex flex-col gap-6">
 						<p class="max-w-md">
 							Join a world full of opportunities and experiences, filled with events and activities. Whether you're a seasoned pilot or
-							a veteran controller, the skies of Bahrain and Kuwait are open for you.
+							a veteran controller, the skies of Bahrain and Qatar are open for you.
 						</p>
 
-						<!-- Disabled for now due to Discord integration -->
-						<button class="btn btn-disabled">Get Started</button>
+						<a href="https://community.vatsim.net/" target="_blank" class="btn">
+							Join our Discord
+						</a>
 					</div>
 				</div>
 			</div>

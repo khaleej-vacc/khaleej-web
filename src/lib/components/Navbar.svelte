@@ -76,7 +76,7 @@
 
 							<ul class="menu menu-vertical min-w-max bg-secondary bg-opacity-50">
 								<li><a href="/events"><CalendarHeart size={20} />Events</a></li>
-								<li><a href="/events/booking"><CalendarPlus size={20} />Event Booking</a></li>
+								<li><a href="https://hq.vatsim.me/bookings/create" target="_blank"><BookText size={20} />Position Booking</a></li>
 								<li><a href="/charts"><Map size={20} />Airports & Charts</a></li>
 							</ul>
 						</details>
@@ -106,7 +106,7 @@
 								<li><a href="/staff"><UsersRound size={20} />Staff</a></li>
 								<li><a href="/policies"><HeartHandshake size={20} />Policies</a></li>
 								<li><a href="/contact"><Mails size={20} />Contact</a></li>
-								<li><a href="https://hayya.vatsim.me/" target="_blank"><Headset size={20} />HQ</a></li>
+								<li><a href="https://hq.vatsim.me/" target="_blank"><Headset size={20} />HQ</a></li>
 							</ul>
 						</details>
 					</li>
@@ -150,7 +150,7 @@
 			<li><a href="/staff"><UsersRound size={20} />Staff</a></li>
 			<li><a href="/policies"><HeartHandshake size={20} />Policies</a></li>
 			<li><a href="/contact"><Mails size={20} />Contact</a></li>
-			<li><a href="https://hayya.vatsim.me/" target="_blank"><Headset size={20} />HQ</a></li>
+			<li><a href="https://hq.vatsim.me/" target="_blank"><Headset size={20} />HQ</a></li>
 		</ul>
 	</div>
 </div>

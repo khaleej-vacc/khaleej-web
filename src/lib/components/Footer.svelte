@@ -12,7 +12,7 @@
 		<div class="footer footer-center gap-8 py-10">
 			<aside>
 				<a href="/" aria-label="Home" class="transition-opacity hover:opacity-50">
-					<enhanced:img src="../assets/images/logo_footer.png" alt="Footer Logo" class="h-24 w-auto" />
+					<enhanced:img src="../assets/images/logo_footer.svg" alt="Footer Logo" class="h-24 w-auto" />
 				</a>
 
 				<p class="text-neutral-content">© 2026 KHALEEJ VACC • ALL RIGHTS RESERVED</p>

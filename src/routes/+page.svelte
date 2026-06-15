@@ -11,26 +11,22 @@
 	let { data }: PageProps = $props();
 </script>
 
-<main class="flex flex-col">
+<main class="flex flex-col font-ubuntu">
 	<section class="relative isolate min-h-dvh overflow-hidden bg-cover bg-center bg-no-repeat">
-		<!-- Background Image -->
 		<enhanced:img src={bgImage} alt="Background Image" class="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
 
-		<!-- Background Overlay -->
 		<div class="absolute inset-0 -z-10 bg-black/50"></div>
 
 		<div class="container mx-auto">
 			<div class="flex min-h-dvh flex-col justify-center">
-				<h2 class="text-2xl md:text-4xl">👋 Welcome to</h2>
+				<h2 class="text-2xl md:text-4xl">Welcome to the</h2>
 				<h1 class="mt-1 text-5xl font-bold text-secondary md:text-7xl">Khaleej vACC</h1>
 				<p class="mt-2 max-w-lg">
-					Embark on an exhilarating journey through the virtual skies of Bahrain and Kuwait with the Khaleej vACC. Join our vibrant community on
-					VATSIM and experience the thrill of realistic air traffic control and piloting.
+					Explore the virtual skies of Bahrain and Qatar with Khaleej vACC on VATSIM. Experience realistic air traffic control and piloting with our community.
 				</p>
 			</div>
 		</div>
 
-		<!-- Bottom Gradient -->
 		<div class="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-base-300"></div>
 	</section>
 
