@@ -38,9 +38,9 @@
 							Head over to the official VATSIM website that includes comprehensive documentation on how to get started by clicking the
 							button below.
 						</p>
-
-						<!-- Disabled for now due to Discord integration -->
-						<button class="btn btn-disabled">Get Started</button>
+						<a href="https://vatsim.net/docs/basics/getting-started" target="_blank" class="btn">
+							Get Started
+						</a>
 					</div>
 
 					<enhanced:img src="../../../lib/assets/images/partners/vatsim.png" alt="VATSIM Image" class="h-auto w-96 shadow-2xl" />
@@ -56,9 +56,9 @@
 							After that you can <a href="/join" class="btn-link text-secondary transition-opacity hover:opacity-50">click here</a> to get
 							started on joining Khaleej vACC.
 						</p>
-
-						<!-- Disabled for now due to Discord integration -->
-						<button class="btn btn-disabled">Get Started</button>
+						<a href="https://my.vatsim.net" target="_blank" class="btn">
+							myVATSIM
+						</a>
 					</div>
 
 					<enhanced:img src="../../../lib/assets/images/vatmena.png" alt="Region Image" class="h-auto w-96 rounded-lg shadow-2xl" />

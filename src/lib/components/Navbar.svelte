@@ -77,7 +77,7 @@
 							<ul class="menu menu-vertical min-w-max bg-secondary bg-opacity-50">
 								<li><a href="/events"><CalendarHeart size={20} />Events</a></li>
 								<li><a href="https://hq.vatsim.me/bookings/create" target="_blank"><BookText size={20} />Position Booking</a></li>
-								<li><a href="/charts"><Map size={20} />Airports & Charts</a></li>
+								<li><a href="/charts"><Map size={20} />Airport Information</a></li>
 							</ul>
 						</details>
 					</li>
@@ -139,7 +139,7 @@
 			<li class="menu-title">Pilots</li>
 			<li><a href="/events"><CalendarHeart size={20} />Events</a></li>
 			<li><a href="/events/booking"><CalendarPlus size={20} />Event Booking</a></li>
-			<li><a href="/charts"><Map size={20} />Airports & Charts</a></li>
+			<li><a href="/charts"><Map size={20} />Airport Information</a></li>
 
 			<li class="menu-title">Controllers</li>
 			<li><a href="/atc/feedback"><Rss size={20} />ATC Feedback</a></li>
