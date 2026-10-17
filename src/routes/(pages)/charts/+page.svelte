@@ -1,73 +1,145 @@
-
 <script lang="ts">
-	import { Map, Search, Plane, ExternalLink } from 'lucide-svelte';
-	import bgImage from '$lib/assets/images/bg.png?enhanced';
+	import { onMount } from 'svelte';
+	import { Map, Plane, ExternalLink, PlaneLanding, PlaneTakeoff } from 'lucide-svelte';
+	import bgImage from '$lib/assets/images/airports.png?enhanced';
 
-	let searchQuery = '';
+	type AirportTraffic = {
+		arrivals: number;
+		departures: number;
+	};
+
+	let trafficByAirport: Record<string, AirportTraffic> = {};
+	let trafficAvailable = false;
+	let lastUpdated: Date | null = null;
 
 	const firSections = [
 		{
 			name: 'Doha FIR',
-			country: 'Qatar',
 			airports: [
 				{
 					icao: 'OTHH',
 					name: 'Hamad International Airport',
-					country: 'Qatar',
 					url: 'https://docs.khaleejvacc.net/Pilot-Briefings/Hamad_International_Airport/GeneralInformation/'
 				},
 				{
 					icao: 'OTBD',
 					name: 'Doha International Airport',
-					country: 'Qatar',
 					url: 'https://docs.khaleejvacc.net/Pilot-Briefings/Doha_International_Airport/GeneralInformation/'
 				}
 			]
 		},
 		{
 			name: 'Bahrain FIR',
-			country: 'Bahrain',
 			airports: [
 				{
 					icao: 'OBBI',
 					name: 'Bahrain International Airport',
-					country: 'Bahrain',
 					url: 'https://docs.khaleejvacc.net/Pilot-Briefings/Bahrain_International_Airport/GeneralInformation/'
 				}
 			]
 		}
 	];
 
-	$: filteredSections = firSections.map((fir) => ({
-		...fir,
-		airports: fir.airports.filter((airport) => {
-			const query = searchQuery.trim().toLowerCase();
+	// Fetch the live VATSIM data feed and count aircraft by airport.
+	onMount(() => {
+		let disposed = false;
+		let updating = false;
 
-			if (!query) return true;
+		async function updateTraffic() {
+			if (updating) return;
+			updating = true;
 
-			return [
-				airport.icao,
-				airport.name,
-				airport.country,
-				fir.name
-			].some((value) => value.toLowerCase().includes(query));
-		})
-	}));
+			try {
+				const response = await fetch(
+					'https://data.vatsim.net/v3/vatsim-data.json'
+				);
+
+				if (!response.ok) {
+					throw new Error(`VATSIM API returned ${response.status}`);
+				}
+
+				const data = await response.json();
+
+				if (!Array.isArray(data.pilots)) {
+					throw new Error('Invalid VATSIM data response');
+				}
+
+				const counts: Record<string, AirportTraffic> = {};
+
+				for (const fir of firSections) {
+					for (const airport of fir.airports) {
+						counts[airport.icao] = {
+							arrivals: 0,
+							departures: 0
+						};
+					}
+				}
+
+				for (const pilot of data.pilots) {
+					const flightPlan = pilot.flight_plan;
+
+					if (!flightPlan) continue;
+
+					const departure = flightPlan.departure
+						?.trim()
+						.toUpperCase();
+
+					const arrival = flightPlan.arrival
+						?.trim()
+						.toUpperCase();
+
+					if (departure && counts[departure]) {
+						counts[departure].departures++;
+					}
+
+					if (arrival && counts[arrival]) {
+						counts[arrival].arrivals++;
+					}
+				}
+
+				if (!disposed) {
+					trafficByAirport = counts;
+					trafficAvailable = true;
+					lastUpdated = new Date();
+				}
+			} catch (error) {
+				console.error('Failed to fetch VATSIM traffic:', error);
+			} finally {
+				updating = false;
+			}
+		}
+
+		void updateTraffic();
+
+		// Refresh every 60 seconds.
+		const interval = setInterval(() => {
+			void updateTraffic();
+		}, 60_000);
+
+		return () => {
+			disposed = true;
+			clearInterval(interval);
+		};
+	});
 </script>
 
 <svelte:head>
-	<title>Airports & Charts | Khaleej vACC</title>
+	<title>Khaleej vACC</title>
 	<meta
 		name="description"
-		content="Airport information and briefing resources for Doha FIR and Bahrain FIR."
+		content="Airport information, briefing resources and live VATSIM traffic for Doha FIR and Bahrain FIR."
+	/>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+		rel="stylesheet"
 	/>
 </svelte:head>
 
-<main class="min-h-screen bg-base-300 text-base-content">
+<main class="min-h-screen bg-base-300 text-base-content font-['Ubuntu']">
 	<!-- Page header -->
-	<section
-		class="relative isolate min-h-[34vh] bg-cover bg-center bg-no-repeat"
-	>
+	<section class="relative isolate min-h-[34vh] bg-cover bg-center bg-no-repeat">
 		<enhanced:img
 			src={bgImage}
 			alt="Airport background"
@@ -100,114 +172,78 @@
 	<!-- Airport directory -->
 	<section class="bg-base-300 py-10 md:py-14">
 		<div class="container mx-auto px-5">
-			<!-- Search -->
-			<div class="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-				<div>
-					<h2 class="text-xl font-semibold">Airport directory</h2>
-					<p class="mt-1 text-sm text-base-content/60">
-						Select an airport to access its briefing documentation.
-					</p>
-				</div>
-
-				<div
-					class="flex w-full items-center gap-3 rounded-lg border border-base-content/15 bg-base-100 px-4 py-3 sm:max-w-sm"
-				>
-					<Search size={18} class="shrink-0 text-base-content/50" />
-
-					<input
-						bind:value={searchQuery}
-						type="search"
-						placeholder="Search airports or FIRs..."
-						aria-label="Search airports or FIRs"
-						class="w-full bg-transparent text-sm outline-none placeholder:text-base-content/40"
-					/>
-
-					{#if searchQuery}
-						<button
-							type="button"
-							onclick={() => (searchQuery = '')}
-							class="text-xs text-base-content/60 transition hover:text-base-content"
-						>
-							Clear
-						</button>
-					{/if}
-				</div>
+			<!-- Airport directory heading -->
+			<div class="mb-10">
+				<h2 class="text-xl font-semibold">Airport directory</h2>
+				<p class="mt-1 text-sm text-base-content/60">
+					Select an airport to access its briefing documentation.
+				</p>
 			</div>
 
 			<!-- FIR sections -->
 			<div class="space-y-12">
-				{#each filteredSections as fir}
+				{#each firSections as fir}
 					<section>
-						<div
-							class="mb-5 flex items-center justify-between border-b border-base-content/10 pb-4"
-						>
+						<div class="mb-5 flex items-center justify-between border-b border-base-content/10 pb-4">
 							<div>
-								<p
-									class="mb-1 text-xs font-semibold uppercase tracking-wider text-base-content/50"
-								>
-									{fir.country}
-								</p>
-
 								<h2 class="text-2xl font-semibold">
 									{fir.name}
 								</h2>
 							</div>
-
-							<span class="text-sm text-base-content/50">
-								{fir.airports.length}
-								{fir.airports.length === 1 ? 'airport' : 'airports'}
-							</span>
 						</div>
 
-						{#if fir.airports.length > 0}
-							<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-								{#each fir.airports as airport}
-									<a
-										href={airport.url}
-										target="_blank"
-										rel="noopener noreferrer"
-										class="group flex min-h-32 items-start gap-4 rounded-lg border border-base-content/10 bg-base-100 p-5 transition-colors hover:border-base-content/25 hover:bg-base-200"
-									>
-										<div
-											class="flex size-11 shrink-0 items-center justify-center rounded-md bg-base-300 text-base-content/70"
-										>
-											<Plane size={21} />
+						<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+							{#each fir.airports as airport}
+								<a
+									href={airport.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="group flex min-h-32 items-start gap-4 rounded-lg border border-base-content/10 bg-base-100 p-5 transition-colors hover:border-base-content/25 hover:bg-base-200"
+								>
+									<div class="min-w-0 flex-1">
+										<div class="flex items-center justify-between gap-3">
+											<h3 class="text-lg font-semibold tracking-wide">
+												{airport.icao}
+											</h3>
+
+											<ExternalLink
+												size={16}
+												class="shrink-0 text-base-content/40 transition-colors group-hover:text-base-content"
+											/>
 										</div>
 
-										<div class="min-w-0 flex-1">
-											<div
-												class="flex items-center justify-between gap-3"
-											>
-												<h3
-													class="text-lg font-semibold tracking-wide"
-												>
-													{airport.icao}
-												</h3>
+										<p class="mt-1 text-sm text-base-content/75">
+											{airport.name}
+										</p>
 
-												<ExternalLink
-													size={16}
-													class="shrink-0 text-base-content/40 transition-colors group-hover:text-base-content"
-												/>
+										<!-- Live traffic counts -->
+										<div class="mt-4 flex flex-wrap gap-3">
+											<div class="flex w-fit items-center gap-2 rounded-md bg-base-300/70 px-3 py-2 text-base-content/60">
+												<PlaneLanding size={18} />
+												<p class="text-xl font-semibold tabular-nums">
+													{#if trafficAvailable}
+														{trafficByAirport[airport.icao]?.arrivals ?? 0}
+													{:else}
+														—
+													{/if}
+												</p>
 											</div>
 
-											<p class="mt-1 text-sm text-base-content/75">
-												{airport.name}
-											</p>
-
-											<p
-												class="mt-3 text-xs text-base-content/50"
-											>
-												Airport information
-											</p>
+											<div class="flex w-fit items-center gap-2 rounded-md bg-base-300/70 px-3 py-2 text-base-content/60">
+												<PlaneTakeoff size={18} />
+												<p class="text-xl font-semibold tabular-nums">
+													{#if trafficAvailable}
+														{trafficByAirport[airport.icao]?.departures ?? 0}
+													{:else}
+														—
+													{/if}
+												</p>
+											</div>
 										</div>
-									</a>
-								{/each}
-							</div>
-						{:else}
-							<p class="rounded-lg border border-base-content/10 px-5 py-6 text-sm text-base-content/55">
-								No airports match your search in this FIR.
-							</p>
-						{/if}
+									</div>
+								</a>
+							{/each}
+						</div>
 					</section>
 				{/each}
 			</div>

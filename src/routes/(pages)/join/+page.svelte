@@ -1,4 +1,13 @@
 
+<svelte:head>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap"
+		rel="stylesheet"
+	/>
+</svelte:head>
+
 <script lang="ts">
 	import {
 		ArrowDown,
@@ -12,7 +21,7 @@
 	import bgImage from '$lib/assets/images/join.png?enhanced';
 </script>
 
-<main class="flex flex-col">
+<main class="flex flex-col" style="font-family: 'Ubuntu', sans-serif;">
 	<!-- Hero -->
 	<section class="relative isolate min-h-dvh overflow-hidden bg-cover bg-center bg-no-repeat">
 		<enhanced:img

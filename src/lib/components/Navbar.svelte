@@ -8,6 +8,7 @@
 
 		// Pilots
 		Plane,
+		PlaneTakeoffIcon,
 		CalendarHeart,
 		CalendarPlus,
 		Map,
@@ -16,6 +17,8 @@
 		Radar,
 		Rss,
 		UserRoundSearch,
+		HeadsetIcon,
+		CircleFadingArrowUp,
 		// UserRoundCheck,
 		BookText,
 
@@ -62,7 +65,7 @@
 
 							<ul class="menu menu-vertical bg-secondary bg-opacity-50">
 								<li><a href="/new"><Star size={20} />New to VATSIM</a></li>
-								<li><a href="/join"><UserPlus size={20} />Join Khaleej</a></li>
+								<li><a href="/join"><UserPlus size={20} />Control with Khaleej</a></li>
 								<li><a href="/atc/training"><GraduationCap size={20} />ATC Training</a></li>
 							</ul>
 						</details>
@@ -76,8 +79,8 @@
 
 							<ul class="menu menu-vertical min-w-max bg-secondary bg-opacity-50">
 								<li><a href="/events"><CalendarHeart size={20} />Events</a></li>
-								<li><a href="https://hq.vatsim.me/bookings/create" target="_blank"><BookText size={20} />Position Booking</a></li>
 								<li><a href="/charts"><Map size={20} />Airport Information</a></li>
+								<li><a href="https://vdgs.vatsimspain.es/vdgs/index.php" target="_blank"><PlaneTakeoffIcon size={20} />VDGS Dashboard</a></li>
 							</ul>
 						</details>
 					</li>
@@ -85,13 +88,16 @@
 					<li>
 						<details>
 							<summary class="hover:bg-secondary hover:bg-opacity-50">
-								<Radar size={20} /> Controllers
+								<HeadsetIcon size={20} /> Controllers
 							</summary>
 
 							<ul class="menu menu-vertical min-w-max bg-secondary bg-opacity-50">
 								<li><a href="/atc/feedback"><Rss size={20} />ATC Feedback</a></li>
-								<li><a href="/atc/roster"><UserRoundSearch size={20} />ATC Roster</a></li>
+								<li><a href="https://hq.vatsim.me/bookings/create" target="_blank"><CircleFadingArrowUp size={20} />Position Booking</a></li>
+								<li><a href="/join"><UserPlus size={20} />Visiting Controllers</a></li>
 								<li><a href="https://docs.khaleejvacc.net/" target="_blank"><BookText size={20} />Documentation</a></li>
+								<li><a href="/sectorfiles"><UserRoundSearch size={20} />Sector Files</a></li>
+								<li><a href="/atc/roster"><UserRoundSearch size={20} />Controller Roster</a></li>
 							</ul>
 						</details>
 					</li>
@@ -103,10 +109,10 @@
 							</summary>
 
 							<ul class="menu menu-vertical min-w-max bg-secondary bg-opacity-50">
-								<li><a href="/staff"><UsersRound size={20} />Staff</a></li>
+								<li><a href="/staff"><UsersRound size={20} />Our Team</a></li>
 								<li><a href="/policies"><HeartHandshake size={20} />Policies</a></li>
-								<li><a href="/contact"><Mails size={20} />Contact</a></li>
-								<li><a href="https://hq.vatsim.me/" target="_blank"><Headset size={20} />HQ</a></li>
+								<li><a href="/contact"><Mails size={20} />Contact Us</a></li>
+								<li><a href="https://hq.vatsim.me/" target="_blank"><Headset size={20} />VATMENA HQ</a></li>
 							</ul>
 						</details>
 					</li>

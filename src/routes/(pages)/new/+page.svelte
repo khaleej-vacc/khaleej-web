@@ -1,13 +1,20 @@
 <script lang="ts">
 	import { ArrowDown } from 'lucide-svelte';
 
-	import bgImage from '$lib/assets/images/bg.png?enhanced';
+	import bgVideo from '$lib/assets/images/atc.mp4';
 </script>
 
 <main class="flex flex-col">
 	<section class="relative isolate min-h-dvh overflow-hidden bg-cover bg-center bg-no-repeat">
-		<!-- Backround Image -->
-		<enhanced:img src={bgImage} alt="Background Image" class="absolute inset-0 -z-20 h-full w-full object-cover object-center" />
+		<!-- Background Video -->
+		<video
+			src={bgVideo}
+			autoplay
+			muted
+			loop
+			playsinline
+			class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
+		></video>
 
 		<!-- Background Overlay -->
 		<div class="absolute inset-0 -z-10 bg-black/50"></div>
