@@ -1,7 +1,7 @@
 
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { Plane, Download, ExternalLink, Clock3 } from 'lucide-svelte';
+	import { FileDown, Download, Clock3 } from 'lucide-svelte';
 	import bgImage from '$lib/assets/images/airports.png?enhanced';
 
 	export let data: PageData;
@@ -31,15 +31,11 @@
 		/>
 		<div class="absolute inset-0 -z-10 bg-black/60"></div>
 
-		<div class="container mx-auto px-5">
-			<div class="flex min-h-[34vh] flex-col justify-center py-12">
-				<div class="flex items-center gap-3 text-secondary">
-					<Plane size={32} />
-					<h1 class="text-3xl font-bold md:text-4xl">Controller Sector Files</h1>
+		<div class="container mx-auto">
+			<div class="flex min-h-[40dvh] flex-col items-center justify-center">
+				<div class="flex items-center gap-2 text-2xl font-bold text-secondary md:text-4xl">
+					<FileDown size={36} /> Sector Files
 				</div>
-				<p class="mt-4 max-w-2xl text-base text-white/75">
-					Download the latest EuroScope sector files provided by the Khaleej vACC.
-				</p>
 			</div>
 		</div>
 
@@ -121,7 +117,6 @@
 							>
 								<Download size={18} />
 								GNG Release
-								<ExternalLink size={15} class="ml-1 opacity-75" />
 							</a>
 						</div>
 					</section>

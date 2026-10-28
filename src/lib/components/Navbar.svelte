@@ -66,7 +66,6 @@
 							<ul class="menu menu-vertical bg-secondary bg-opacity-50">
 								<li><a href="/new"><Star size={20} />New to VATSIM</a></li>
 								<li><a href="/join"><UserPlus size={20} />Control with Khaleej</a></li>
-								<li><a href="/atc/training"><GraduationCap size={20} />ATC Training</a></li>
 							</ul>
 						</details>
 					</li>

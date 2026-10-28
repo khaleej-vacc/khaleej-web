@@ -148,19 +148,11 @@
 
 		<div class="absolute inset-0 -z-10 bg-black/60"></div>
 
-		<div class="container mx-auto px-5">
-			<div class="flex min-h-[34vh] flex-col justify-center py-12">
-				<div class="flex items-center gap-3 text-secondary">
-					<Map size={32} />
-
-					<h1 class="text-3xl font-bold md:text-4xl">
-						Airports & Charts
-					</h1>
+		<div class="container mx-auto">
+			<div class="flex min-h-[40dvh] flex-col items-center justify-center">
+				<div class="flex items-center gap-2 text-2xl font-bold text-secondary md:text-4xl">
+					<Plane size={36} /> Airport Information
 				</div>
-
-				<p class="mt-4 max-w-xl text-base text-white/75">
-					Airport information and briefing resources across Khaleej vACC.
-				</p>
 			</div>
 		</div>
 

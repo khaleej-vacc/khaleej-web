@@ -221,27 +221,6 @@
 		></div>
 	</section>
 
-	<!-- Upcoming Events -->
-	<section class="bg-base-300 py-10">
-		<div class="container mx-auto px-5">
-			<div class="flex flex-col gap-10">
-				<div
-					class="divider divider-secondary text-4xl before:bg-opacity-50 after:bg-opacity-50"
-				>
-					Upcoming Events
-				</div>
-
-				{#if data.events}
-					<Events events={data.events} />
-				{:else}
-					<p class="text-center">
-						There are currently no upcoming events.
-					</p>
-				{/if}
-			</div>
-		</div>
-	</section>
-
 	<!-- Active Controllers -->
 	<section class="bg-base-300 py-10">
 		<div class="container mx-auto px-5">
@@ -306,6 +285,27 @@
 							</div>
 						{/each}
 					</div>
+				{/if}
+			</div>
+		</div>
+	</section>
+
+	<!-- Upcoming Events -->
+	<section class="bg-base-300 py-10">
+		<div class="container mx-auto px-5">
+			<div class="flex flex-col gap-10">
+				<div
+					class="divider divider-secondary text-4xl before:bg-opacity-50 after:bg-opacity-50"
+				>
+					Upcoming Events
+				</div>
+
+				{#if data.events}
+					<Events events={data.events} />
+				{:else}
+					<p class="text-center">
+						There are currently no upcoming events.
+					</p>
 				{/if}
 			</div>
 		</div>
