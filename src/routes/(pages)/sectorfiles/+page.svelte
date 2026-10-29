@@ -80,11 +80,9 @@
 								</div>
 
 								<div class="mt-4 border-t border-base-content/10 pt-4">
-									<p class="text-xs font-medium uppercase tracking-wide text-base-content/45">
-										Version
-									</p>
+									<p class="text-sm text-base-content/60">Version</p>
 									<p class="mt-1 text-sm font-medium tabular-nums">
-										{fir.version ?? 'Unavailable'}
+										v{fir.version ?? 'Unavailable'}
 									</p>
 								</div>
 							</div>
@@ -116,7 +114,7 @@
 								class="mt-6 flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-3 text-center font-semibold text-primary-content transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
 							>
 								<Download size={18} />
-								GNG Release
+								AeroNav Release
 							</a>
 						</div>
 					</section>
