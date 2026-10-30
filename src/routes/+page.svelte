@@ -25,23 +25,22 @@
 
 	const stationNames: Record<string, string> = {
 		OTHH_1_TWR: 'Hamad Tower | East',
-		OTHH_1X_TWR: 'Hamad Tower',
 		OTHH_2_TWR: 'Hamad Tower | West',
 		OTBD_1_TWR: 'Doha Tower',
 		OTBD_1X_TWR: 'Doha Tower',
 		OTBH_TWR: 'Al-Udaid Tower',
 
-		OTHH_1_GND: 'Hamad Ground | Bandbox',
+		OTHH_1_GND: 'Hamad Ground | East',
 		OTHH_1X_GND: 'Hamad Ground',
 		OTHH_2_GND: 'Hamad Ground | Central',
 		OTHH_3_GND: 'Hamad Ground | West',
-		OTHH_4_GND: 'Hamad Ground',
-		OTHH_5_GND: 'Hamad Ground',
+		OTHH_4_GND: 'Hamad Ground | Overflow',
+		OTHH_5_GND: 'Hamad Ground | Planner',
 		OTBD_GND: 'Doha Ground',
 
 		OTHH_DEL: 'Hamad Clearance Delivery',
 
-		OTDF_N1_CTR: 'Doha Control | Bandbox',
+		OTDF_N1_CTR: 'Doha Control | North Sector',
 		OTDF_N2_CTR: 'Doha Control | North High Sector',
 		OTDF_S_CTR: 'Doha Control | South Sector',
 
@@ -60,13 +59,13 @@
 		OBBI_GND: 'Bahrain Ground',
 		OBBI_DEL: 'Bahrain Delivery',
 		OBBI_APP: 'Bahrain Approach',
-		OBBI_F_APP: 'Bahrain Director',
+		OBBI_DEP: 'Bahrain Approach | Departure/Director',
 		OBBS_APP: 'Isa-Airbase Approach Radar',
 
 		OBBB_1_CTR: 'Bahrain Radar | Bandbox',
 		OBBB_CH_CTR: 'Bahrain Radar | Central High Sector',
 		OBBB_CL_CTR: 'Bahrain Radar | Central Low Sector',
-		OBBB_3_CTR: 'Bahrain Radar | North High Sector',
+		OBBB_2_CTR: 'Bahrain Radar | North High Sector',
 		OBBB_N_CTR: 'Bahrain Radar | North Low Sector'
 	};
 
