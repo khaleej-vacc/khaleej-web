@@ -290,7 +290,7 @@
 	</section>
 
 	<!-- Upcoming Events -->
-	<section class="bg-base-300 py-10">
+	<section class="bg-base-300 pt-0 pb-10">
 		<div class="container mx-auto px-5">
 			<div class="flex flex-col gap-10">
 				<div
