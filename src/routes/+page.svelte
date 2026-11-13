@@ -12,6 +12,7 @@
 	let { data }: PageProps = $props();
 
 	type Controller = {
+		cid: number;
 		callsign: string;
 		frequency: string;
 		facility: number;
@@ -29,15 +30,12 @@
 		OTBD_1_TWR: 'Doha Tower',
 		OTBD_1X_TWR: 'Doha Tower',
 		OTBH_TWR: 'Al-Udaid Tower',
-
 		OTHH_1_GND: 'Hamad Ground | East',
-		OTHH_1X_GND: 'Hamad Ground',
 		OTHH_2_GND: 'Hamad Ground | Central',
 		OTHH_3_GND: 'Hamad Ground | West',
 		OTHH_4_GND: 'Hamad Ground | Overflow',
 		OTHH_5_GND: 'Hamad Ground | Planner',
 		OTBD_GND: 'Doha Ground',
-
 		OTHH_DEL: 'Hamad Clearance Delivery',
 
 		OTDF_N1_CTR: 'Doha Control | North Sector',
@@ -62,7 +60,7 @@
 		OBBI_DEP: 'Bahrain Approach | Departure/Director',
 		OBBS_APP: 'Isa-Airbase Approach Radar',
 
-		OBBB_1_CTR: 'Bahrain Radar | Bandbox',
+		OBBB_1_CTR: 'Bahrain Radar | Central Super',
 		OBBB_CH_CTR: 'Bahrain Radar | Central High Sector',
 		OBBB_CL_CTR: 'Bahrain Radar | Central Low Sector',
 		OBBB_2_CTR: 'Bahrain Radar | North High Sector',
@@ -221,9 +219,9 @@
 	</section>
 
 	<!-- Active Controllers -->
-	<section class="bg-base-300 py-10">
+	<section class="bg-base-300 pt-0 pb-10">
 		<div class="container mx-auto px-5">
-			<div class="flex flex-col gap-6">
+			<div class="flex flex-col gap-10">
 				<div
 					class="divider divider-secondary text-4xl before:bg-opacity-50 after:bg-opacity-50"
 				>
@@ -245,8 +243,12 @@
 						class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
 					>
 						{#each controllers as controller (controller.callsign)}
-							<div
-								class="rounded-lg border border-base-content/10 bg-base-100 p-5 transition-colors hover:border-base-content/25"
+							<a
+								href={`http://stats.vatsim.net/stats/${controller.cid}`}
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label={`View VATSIM statistics for ${controller.callsign}`}
+								class="block rounded-lg border border-base-content/10 bg-base-100 p-5 transition-colors hover:border-base-content/25 hover:bg-base-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
 							>
 								<div
 									class="flex items-start justify-between gap-3"
@@ -281,7 +283,7 @@
 										MHz
 									</span>
 								</p>
-							</div>
+							</a>
 						{/each}
 					</div>
 				{/if}
